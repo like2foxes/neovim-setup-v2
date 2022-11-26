@@ -1,4 +1,7 @@
 require('plugins')
-require('keymaps')
 require('options')
+require('lsp-config')
+require('cmp-config')
 require('themes/newpaper')
+require('keymaps')
+
