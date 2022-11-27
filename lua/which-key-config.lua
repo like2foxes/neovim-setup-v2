@@ -1,7 +1,7 @@
 local wc = require('which-key')
 local mappings = {
 	g = { '<cmd>LazyGit<CR>', "Open LazyGit"},
-	t = { '<cmd>Lspsaga open_floaterm<CR>', "Open Floatterm" },
+	o = { '<cmd>LSoutlineToggle<CR>', "Toggle Soutline"},
 	s = {
 		name = "Search (via Telescope)",
 		f = {":Telescope find_files<cr>", "Find Files"},
@@ -45,6 +45,7 @@ local mappings = {
 		N = {'<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic"},
 		p = {'<cmd>Lspsaga peek_definition<CR>', "Peek Definition"},
 		o = {'<cmd>LSoutlineToggle<CR>', "Toggle outline" },
+		c = {'<cmd>Lspsaga show_cursor_diagnostics<CR>'}
 	},
 }
 local opts = {
