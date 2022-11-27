@@ -12,5 +12,6 @@ require('keymaps')
 require('gitsigns-config')
 require('nvim-tree-config')
 require('bufferline-config')
+require('lualine-config')
 require('which-key-config')
 

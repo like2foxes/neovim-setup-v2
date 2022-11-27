@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
 	use 'kdheepak/lazygit.nvim'
 	use 'nvim-tree/nvim-tree.lua'
 	use 'akinsho/bufferline.nvim'
+	use 'nvim-lualine/lualine.nvim'
 
 	use'folke/which-key.nvim'
 
