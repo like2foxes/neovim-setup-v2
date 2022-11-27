@@ -7,7 +7,8 @@ local lspconfig = require('lspconfig')
 local servers = {
 	'sumneko_lua',
 	'tsserver',
-	'bashls'
+	'bashls',
+	'clangd'
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
