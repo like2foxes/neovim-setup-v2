@@ -13,6 +13,7 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
+	use 'nvim-lua/plenary.nvim'
 
 	use 'nvim-tree/nvim-web-devicons'
 	use 'onsails/lspkind.nvim'
@@ -20,6 +21,8 @@ return require('packer').startup(function(use)
 	use 'yorik1984/newpaper.nvim'
 
 	use 'neovim/nvim-lspconfig'
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use 'nvim-telescope/telescope.nvim'
 
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
