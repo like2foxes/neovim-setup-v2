@@ -42,6 +42,9 @@ return require('packer').startup(function(use)
 	use 'akinsho/bufferline.nvim'
 	use 'nvim-lualine/lualine.nvim'
 
+	use 'mfussenegger/nvim-dap'
+	use 'rcarriga/nvim-dap-ui'
+	use 'rlane/pounce.nvim'
 	use'folke/which-key.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim

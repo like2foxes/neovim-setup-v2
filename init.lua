@@ -13,5 +13,7 @@ require('gitsigns-config')
 require('nvim-tree-config')
 require('bufferline-config')
 require('lualine-config')
+require('dap-config')
+require('pounce-config')
 require('which-key-config')
 

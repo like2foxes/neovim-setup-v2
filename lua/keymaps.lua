@@ -15,6 +15,12 @@ map('n','<C-j>','<C-w>j')
 map('n','<C-k>','<C-w>k')
 map('n','<C-l>','<C-w>l')
 
+-- Keymaps for Pounce
+map('n', 's', '<cmd>Pounce<CR>')
+map('n', 'S', '<cmd>PounceRepeat<CR>')
+map('v', 's', '<cmd>Pounce<CR>')
+map('o', 'gs', '<cmd>Pounce<CR>')
+
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
 -- when you use action in finder like open vsplit then you can
