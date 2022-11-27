@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
 	use 'yorik1984/newpaper.nvim'
 
 	use 'neovim/nvim-lspconfig'
+	use 'glepnir/lspsaga.nvim'
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use 'nvim-telescope/telescope.nvim'
 
