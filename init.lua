@@ -10,5 +10,7 @@ require('autopairs-config')
 require('themes/newpaper')
 require('keymaps')
 require('gitsigns-config')
+require('nvim-tree-config')
+require('bufferline-config')
 require('which-key-config')
 

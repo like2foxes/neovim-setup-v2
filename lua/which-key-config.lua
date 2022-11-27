@@ -2,6 +2,7 @@ local wc = require('which-key')
 local mappings = {
 	g = { '<cmd>LazyGit<CR>', "Open LazyGit"},
 	o = { '<cmd>LSoutlineToggle<CR>', "Toggle Soutline"},
+	e = { '<cmd>NvimTreeOpen<CR>', "Toggle Nvim Tree"},
 	s = {
 		name = "Search (via Telescope)",
 		f = {":Telescope find_files<cr>", "Find Files"},
@@ -47,6 +48,17 @@ local mappings = {
 		o = {'<cmd>LSoutlineToggle<CR>', "Toggle outline" },
 		c = {'<cmd>Lspsaga show_cursor_diagnostics<CR>'}
 	},
+	b = {
+		name = "Buffers",
+		b = {":BufferLinePick<cr>", "Pick a buffer"},
+		n = {":BufferLineCycleNext<cr>", "Next buffer"},
+		p = {":BufferLineCyclePrev<cr>", "Previous buffer"},
+		N = {":BufferLineMoveNext<cr>", "Push buffer to the right"},
+		P = {":BufferLineMovePrev<cr>", "Push buffer to the left"},
+		l = {":BufferLineCloseLeft<cr>", "Close all to the left"},
+		r = {":BufferLineCloseRight<cr>", "Close all to the right"},
+		c = {":BufferLineClosePick<cr>", "Close a buffer"}
+	}
 }
 local opts = {
 	prefix = '<leader>'

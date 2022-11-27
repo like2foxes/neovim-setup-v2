@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
 	use 'windwp/nvim-autopairs'
 	use 'lewis6991/gitsigns.nvim'
 	use 'kdheepak/lazygit.nvim'
+	use 'nvim-tree/nvim-tree.lua'
+	use 'akinsho/bufferline.nvim'
 
 	use'folke/which-key.nvim'
 
