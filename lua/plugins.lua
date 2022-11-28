@@ -12,23 +12,34 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+
+	-- packer
 	use 'wbthomason/packer.nvim'
+
+	-- this is a prerequisite for many other plugins
 	use 'nvim-lua/plenary.nvim'
 
+	-- themes and icons
 	use 'nvim-tree/nvim-web-devicons'
 	use 'onsails/lspkind.nvim'
-
 	use 'folke/tokyonight.nvim'
 	use 'yorik1984/newpaper.nvim'
 
+	-- lsp related plugins
 	use 'neovim/nvim-lspconfig'
 	use 'glepnir/lspsaga.nvim'
-	use 'nvim-treesitter/nvim-treesitter'
-	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	use 'nvim-treesitter/nvim-treesitter-context'
-	use 'nvim-telescope/telescope.nvim'
-	use 'folke/neodev.nvim'
+	use 'folke/neodev.nvim' -- for neovim lua
+	use 'ray-x/lsp_signature.nvim'
 
+	-- treesitter related plugins
+	use 'nvim-treesitter/nvim-treesitter'
+	use 'nvim-treesitter/nvim-treesitter-context'
+
+	-- telescope related plugins
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use 'nvim-telescope/telescope.nvim'
+
+	-- nvim-cmp
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -37,24 +48,33 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
 
-	use 'windwp/nvim-autopairs'
+	-- git
 	use 'lewis6991/gitsigns.nvim'
 	use 'kdheepak/lazygit.nvim'
-	use 'nvim-tree/nvim-tree.lua'
+
+	-- visual aid
+	use 'windwp/nvim-autopairs'
 	use 'akinsho/bufferline.nvim'
 	use 'nvim-lualine/lualine.nvim'
-	use 'simrat39/symbols-outline.nvim'
 	use 'NvChad/nvim-colorizer.lua'
 	use 'karb94/neoscroll.nvim'
+	use'folke/which-key.nvim'
+
+	-- code structure
+	use 'simrat39/symbols-outline.nvim'
 	use 'numToStr/Comment.nvim'
 	use 'anuvyklack/pretty-fold.nvim'
 
+	-- debugging
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'
-	use 'rlane/pounce.nvim'
-	use 'ray-x/lsp_signature.nvim'
+
+	-- project management
 	use 'rmagatti/auto-session'
-	use'folke/which-key.nvim'
+	use 'nvim-tree/nvim-tree.lua'
+
+	-- movement
+	use 'rlane/pounce.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
