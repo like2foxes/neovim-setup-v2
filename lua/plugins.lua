@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
 	use 'glepnir/lspsaga.nvim'
 	use 'nvim-treesitter/nvim-treesitter'
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use 'nvim-treesitter/nvim-treesitter-context'
 	use 'nvim-telescope/telescope.nvim'
 	use 'folke/neodev.nvim'
 
