@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'
 	use 'rlane/pounce.nvim'
+	use 'ray-x/lsp_signature.nvim'
 	use'folke/which-key.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim

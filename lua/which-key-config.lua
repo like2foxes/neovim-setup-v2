@@ -57,7 +57,7 @@ local mappings = {
 		P = {":BufferLineMovePrev<cr>", "Push buffer to the left"},
 		l = {":BufferLineCloseLeft<cr>", "Close all to the left"},
 		r = {":BufferLineCloseRight<cr>", "Close all to the right"},
-		c = {":BufferLineClosePick<cr>", "Close a buffer"}
+		c = {":BufferLinePickClose<cr>", "Close a buffer"}
 	}
 }
 local opts = {

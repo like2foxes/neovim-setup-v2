@@ -15,5 +15,6 @@ require('bufferline-config')
 require('lualine-config')
 require('dap-config')
 require('pounce-config')
+require('lsp-signature-config')
 require('which-key-config')
 
