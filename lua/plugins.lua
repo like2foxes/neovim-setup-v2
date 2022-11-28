@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-tree.lua'
 	use 'akinsho/bufferline.nvim'
 	use 'nvim-lualine/lualine.nvim'
+	use 'karb94/neoscroll.nvim'
 
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'
