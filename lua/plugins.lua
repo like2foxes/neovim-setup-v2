@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-web-devicons'
 	use 'onsails/lspkind.nvim'
 
+	use 'folke/tokyonight.nvim'
 	use 'yorik1984/newpaper.nvim'
 
 	use 'neovim/nvim-lspconfig'
@@ -46,6 +47,7 @@ return require('packer').startup(function(use)
 	use 'rcarriga/nvim-dap-ui'
 	use 'rlane/pounce.nvim'
 	use 'ray-x/lsp_signature.nvim'
+	use 'rmagatti/auto-session'
 	use'folke/which-key.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
