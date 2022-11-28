@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'NvChad/nvim-colorizer.lua'
 	use 'karb94/neoscroll.nvim'
+	use 'numToStr/Comment.nvim'
 
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'
