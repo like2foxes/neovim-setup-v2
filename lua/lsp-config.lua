@@ -5,7 +5,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
 local servers = {
-	'sumneko_lua',
 	'tsserver',
 	'bashls',
 	'clangd'
@@ -15,3 +14,16 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities
 	}
 end
+
+require('lspconfig').sumneko_lua.setup {
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			workspace = {
+				checkThirdParty = false,
+			}
+		}
+	}
+
+}
+
