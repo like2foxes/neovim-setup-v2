@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-tree.lua'
 	use 'akinsho/bufferline.nvim'
 	use 'nvim-lualine/lualine.nvim'
+	use 'simrat39/symbols-outline.nvim'
 	use 'NvChad/nvim-colorizer.lua'
 	use 'karb94/neoscroll.nvim'
 	use 'numToStr/Comment.nvim'
