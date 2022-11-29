@@ -1,15 +1,25 @@
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
 local cmp = require'cmp'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+	'confirm_done',
+	cmp_autopairs.on_confirm_done()
+)
+
 cmp.setup({
 	snippet = {
-		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-			-- require('vsnip').lsp_expand(args.body) -- For `vsnip` users.
-			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 		end,
 	},
-
 	window = {
 		-- completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
@@ -23,21 +33,20 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			--elseif vsnip.expand_or_jumpable() then
-			--	vsnip.expand_or_jump()
+			elseif vim.fn["vsnip#available"](1) == 1 then
+				feedkey("<Plug>(vsnip-expand-or-jump)", "")
 			elseif has_words_before() then
 				cmp.complete()
 			else
-				fallback()
+				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
 			end
 		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
+
+			["<S-Tab>"] = cmp.mapping(function()
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif vsnip.jumpable(-1) then
-				vsnip.jump(-1)
-			else
-				fallback()
+			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+				feedkey("<Plug>(vsnip-jump-prev)", "")
 			end
 		end, { "i", "s" }),
 	}),
