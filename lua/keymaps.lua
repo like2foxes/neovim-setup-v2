@@ -17,6 +17,14 @@ map('n','<C-h>','<C-w>h')
 map('n','<C-j>','<C-w>j')
 map('n','<C-k>','<C-w>k')
 map('n','<C-l>','<C-w>l')
+map('n','gh','<C-w>h', {desc = "Go to Window to The Right"})
+map('n','gj','<C-w>j', {desc = "Go to Window Below"})
+map('n','gk','<C-w>k', {desc = "Go to Window Above"})
+map('n','gl','<C-w>l', {desc = "Go to Window To the Left"})
+
+-- move between tabs
+map('n','gH',':tabprevious<CR>', {desc = "Next Tab"})
+map('n','gL',':tabnext<CR>', {desc = "Previos Tab"})
 
 -- Keymaps for Pounce
 map('n', 's', '<cmd>Pounce<CR>')
@@ -27,6 +35,10 @@ map('o', 's', '<cmd>Pounce<CR>')
 -- keymaps for ufo (folds)
 map('n', 'zR', require('ufo').openAllFolds)
 map('n', 'zM', require('ufo').closeAllFolds)
+
+-- make visual selection stay after changing indentation
+map('v', '<', '<gv')
+map('v', '>', '>gv')
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -57,6 +69,10 @@ map("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 map("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 local wc = require('which-key')
 local mappings = {
+	w = {":write<CR>", "Save"},
+	q = {":quit<CR>", "Quit"},
+	Q = {":quitall<CR>", "Quit All" },
+	j = {"<C-w><C-j>", ""},
 	i = {":noh<CR>", "Turn Off Highlight"},
 	g = {":Telescope live_grep<cr>", "Live Grep"},
 	G = {":Telescope grep_string<cr>", "Grep String"},
@@ -131,6 +147,16 @@ local mappings = {
 		n = {":bnext<CR>", "Next buffer"},
 		p = {":bprev<CR>", "Previous buffer"},
 	},
+	t = {
+		name = "Tabs",
+		o = {":tabnew<CR>", "New Tab"},
+		c = {":tabclose<CR>", "Clost Tab"},
+		C = {":tabonly<CR>", "Close All Other Tabs"},
+		n = {":tabnext<CR>", "Next Tab"},
+		p = {":tabprev<CR>", "Previous Tab"},
+		l = {"g<TAB>", "Last Visited Tab"}
+
+
 	}
 }
 local opts = {
