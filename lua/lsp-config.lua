@@ -7,7 +7,8 @@ local lspconfig = require('lspconfig')
 local servers = {
 	'tsserver',
 	'bashls',
-	'clangd'
+	'clangd',
+	'fennel-ls'
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
