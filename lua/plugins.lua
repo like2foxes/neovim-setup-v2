@@ -54,7 +54,6 @@ return require('packer').startup(function(use)
 
 	-- visual aid
 	use 'windwp/nvim-autopairs'
-	use 'akinsho/bufferline.nvim'
 	use 'nvim-lualine/lualine.nvim'
 	use 'NvChad/nvim-colorizer.lua'
 	use 'karb94/neoscroll.nvim'

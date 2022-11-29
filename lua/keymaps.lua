@@ -126,14 +126,11 @@ local mappings = {
 	},
 	b = {
 		name = "Buffers",
-		b = {":BufferLinePick<cr>", "Pick a buffer"},
-		n = {":BufferLineCycleNext<cr>", "Next buffer"},
-		p = {":BufferLineCyclePrev<cr>", "Previous buffer"},
-		N = {":BufferLineMoveNext<cr>", "Push buffer to the right"},
-		P = {":BufferLineMovePrev<cr>", "Push buffer to the left"},
-		l = {":BufferLineCloseLeft<cr>", "Close all to the left"},
-		r = {":BufferLineCloseRight<cr>", "Close all to the right"},
-		c = {":BufferLinePickClose<cr>", "Close a buffer"}
+		b = {":Telescope buffers<CR>", "Pick a buffer"},
+		c = {":bdelete<CR>", "Close a buffer"},
+		n = {":bnext<CR>", "Next buffer"},
+		p = {":bprev<CR>", "Previous buffer"},
+	},
 	}
 }
 local opts = {
