@@ -8,7 +8,8 @@ local servers = {
 	'tsserver',
 	'bashls',
 	'clangd',
-	'fennel-ls'
+	'fennel-ls',
+	'rust_analyzer'
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
