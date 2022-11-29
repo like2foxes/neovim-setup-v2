@@ -85,7 +85,8 @@ local mappings = {
 	u = {
 		name = "General Utilities",
 		s = {":source %<CR>", "Source current buffer"},
-		p = {":PackerSync<CR>", "Sync Packer"}
+		p = {":PackerSync<CR>", "Sync Packer"},
+		l = {":LspRestart<CR>", "LSP Restart"}
 	},
 	f = {
 		name = "Search (via Telescope)",
