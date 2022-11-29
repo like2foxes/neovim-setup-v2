@@ -40,11 +40,10 @@ local options = {
 	swapfile = false,
 	undofile = true,
 	relativenumber = true,
-	foldmethod = 'expr',
-	foldexpr = 'nvim_treesitter#foldexpr()',
+	foldenable =true,
 	foldlevelstart = 99,
-	foldlevel = 100,
-	foldcolumn = "3",
+	foldlevel = 99,
+	foldcolumn = "1",
 }
 
 for key, value in pairs(options) do

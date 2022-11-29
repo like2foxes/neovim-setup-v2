@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
 	-- code structure
 	use 'simrat39/symbols-outline.nvim'
 	use 'numToStr/Comment.nvim'
-	use 'anuvyklack/pretty-fold.nvim'
+	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
 	-- debugging
 	use 'mfussenegger/nvim-dap'
