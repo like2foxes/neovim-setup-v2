@@ -1,5 +1,6 @@
 local wc = require('which-key')
 local mappings = {
+	i = {":noh<CR>", "Turn Off Highlight"},
 	g = {":Telescope live_grep<cr>", "Live Grep"},
 	G = {":Telescope grep_string<cr>", "Grep String"},
 	o = { '<cmd>SymbolsOutline<CR>', "Toggle Soutline"},
