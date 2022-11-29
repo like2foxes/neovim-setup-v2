@@ -6,8 +6,11 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- better exit from insert mode
-map("i", "kj", "<Esc>")
-map("i", "jk", "<Esc>")
+map({"i", 'v', 'c'}, "kj", "<Esc>")
+map({"i", 'v', 'c'}, "jk", "<Esc>")
+
+-- put ; in the end of the line and return to insert mode
+map('i', "<C-f>", "<Esc>A;");
 
 -- better moving between windows
 map('n','<C-h>','<C-w>h')
