@@ -19,13 +19,17 @@ map('n','<C-l>','<C-w>l')
 map('n', 's', '<cmd>Pounce<CR>')
 map('n', 'S', '<cmd>PounceRepeat<CR>')
 map('v', 's', '<cmd>Pounce<CR>')
-map('o', 'gs', '<cmd>Pounce<CR>')
+map('o', 's', '<cmd>Pounce<CR>')
+
+-- keymaps for ufo (folds)
+map('n', 'zR', require('ufo').openAllFolds)
+map('n', 'zM', require('ufo').closeAllFolds)
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back
-map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+map("n", "gs", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 -- Rename
 map("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
