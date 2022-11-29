@@ -37,6 +37,7 @@ local mappings = {
 		B = { "Gitsigns blame_line<CR>", "Get Blame"},
 		d = {":Gitsigns diffthis<CR>", "Diff"},
 		D = {":Gitsigns toggle_deleted<CR>", "Toggle Deleted"},
+		w = {":Gitsigns toggle_word_diff<CR>", "Toggle Word Diff"}
 
 	},
 	l = {
