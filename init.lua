@@ -9,7 +9,6 @@ require('telescope-config')
 require('autopairs-config')
 require('neoscroll-config')
 require('themes/newpaper')
-require('keymaps')
 require('gitsigns-config')
 require('nvim-tree-config')
 require('bufferline-config')
@@ -23,7 +22,7 @@ require('fold-config')
 require('pounce-config')
 require('lsp-signature-config')
 require('auto-session-config')
-require('which-key-config')
+require('keymaps')
 
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
