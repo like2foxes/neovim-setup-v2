@@ -38,20 +38,20 @@ map('v', '>', '>gv')
 -- if there is no implement it will hide
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back
-map("n", "gs", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+map("n", "gs", "<cmd>Lspsaga lsp_finder<CR>", { desc = "Find Definition and References"})
 
 -- Rename
-map("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+map("n", "gr", "<cmd>Lspsaga rename<CR>", { desc = "Rename"})
 
 -- Peek Definition
 -- you can edit the definition file in this flaotwindow
 -- also support open/vsplit/etc operation check definition_action_keys
 -- support tagstack C-t jump back
-map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition"})
 
 -- Diagnsotic jump can use `<c-o>` to jump back
-map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostic"})
+map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnsotic"})
 
 -- Hover Doc
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
@@ -66,7 +66,6 @@ local mappings = {
 	w = {":write<CR>", "Save"},
 	q = {":quit<CR>", "Quit"},
 	Q = {":quitall<CR>", "Quit All" },
-	j = {"<C-w><C-j>", ""},
 	i = {":noh<CR>", "Turn Off Highlight"},
 	g = {":Telescope live_grep<cr>", "Live Grep"},
 	G = {":Telescope grep_string<cr>", "Grep String"},
@@ -80,7 +79,8 @@ local mappings = {
 		name = "General Utilities",
 		s = {":source %<CR>", "Source current buffer"},
 		p = {":PackerSync<CR>", "Sync Packer"},
-		l = {":LspRestart<CR>", "LSP Restart"}
+		l = {":LspRestart<CR>", "LSP Restart"},
+		c = {":tabnew ~/.config/nvim<CR>", "Configure Neovim"}
 	},
 	f = {
 		name = "Search (via Telescope)",
