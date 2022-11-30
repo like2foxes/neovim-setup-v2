@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
 	use 'glepnir/lspsaga.nvim'
 	use 'folke/neodev.nvim' -- for neovim lua
 	use 'ray-x/lsp_signature.nvim'
+	use 'Olical/conjure'
 
 	-- treesitter related plugins
 	use 'nvim-treesitter/nvim-treesitter'

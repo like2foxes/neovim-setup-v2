@@ -12,7 +12,8 @@ local servers = {
 	'rust_analyzer',
 	'cssls',
 	'emmet_ls',
-	'html'
+	'html',
+	'clojure_lsp',
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
