@@ -9,7 +9,10 @@ local servers = {
 	'bashls',
 	'clangd',
 	'fennel-ls',
-	'rust_analyzer'
+	'rust_analyzer',
+	'cssls',
+	'emmet_ls',
+	'html'
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
