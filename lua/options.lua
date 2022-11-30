@@ -1,47 +1,74 @@
 local options = {
-	hidden = true,
-	autowriteall = true,
-	whichwrap = 'b,s,<,>,h,l',
-	pumheight = 10,
-	fileencoding = 'utf-8',
-	splitbelow = true,
-	splitright = true,
-	termguicolors = true,
-	conceallevel = 0,
-	showmode = false,
-	backup = false,
-	writebackup = false,
-	updatetime = 300,
-	timeoutlen = 500,
-	clipboard = 'unnamedplus',
-	hlsearch = true,
-	incsearch = true,
-	ignorecase = true,
-	smartcase = true,
-	scrolloff = 5,
-	sidescrolloff = 5,
-	mouse = 'a',
-	wrap = false,
-	number = true,
-	cursorline = true,
-	signcolumn = 'yes',
+
+	-- indentation
 	tabstop = 4,
 	softtabstop = 0,
 	shiftwidth = 4,
 	shiftround = true,
 	smarttab = true,
 	expandtab = false,
-	scroll = 2,
-	fixendofline = false,
+
+	-- buffers
+	hidden = true,
+	autowriteall = true,
+	autoread = true,
+
+	-- splits
+	splitbelow = true,
+	splitright = true,
+
+	-- menus
 	wildmenu = true,
 	wildmode = 'full',
-	swapfile = false,
-	undofile = true,
-	relativenumber = true,
+
+	-- folds
 	foldenable =true,
 	foldlevelstart = 99,
 	foldlevel = 99,
 	foldcolumn = "1",
+
+	-- backups
+	backup = false,
+	writebackup = false,
+	swapfile = false,
+	undofile = true,
+
+	-- searching
+	hlsearch = true,
+	incsearch = true,
+	ignorecase = true,
+	smartcase = true,
+
+	-- scrolling
+	scroll = 2,
+	scrolloff = 5,
+	sidescrolloff = 5,
+
+	-- number and sign column
+	number = true,
+	relativenumber = true,
+	signcolumn = 'yes',
+
+	-- visual
+	termguicolors = true,
+	conceallevel = 0,
+	showmode = false,
+	cursorline = true,
+	pumheight = 20,
+
+	-- wrapping
+	wrap = false,
+	whichwrap = 'b,s,<,>,h,l',
+
+	-- command timming
+	updatetime = 300,
+	timeoutlen = 500,
+
+	-- encoding and compatability
+	fileencoding = 'utf-8',
+	fixendofline = false,
+	clipboard = 'unnamedplus',
+	mouse = 'a',
 }
 
 for key, value in pairs(options) do
