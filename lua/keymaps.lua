@@ -26,12 +26,6 @@ map('n','gl','<C-w>l', {desc = "Go to Window To the Left"})
 map('n','gH',':tabprevious<CR>', {desc = "Next Tab"})
 map('n','gL',':tabnext<CR>', {desc = "Previos Tab"})
 
--- Keymaps for Pounce
-map('n', 's', '<cmd>Pounce<CR>')
-map('n', 'S', '<cmd>PounceRepeat<CR>')
-map('v', 's', '<cmd>Pounce<CR>')
-map('o', 's', '<cmd>Pounce<CR>')
-
 -- keymaps for ufo (folds)
 map('n', 'zR', require('ufo').openAllFolds)
 map('n', 'zM', require('ufo').closeAllFolds)
@@ -76,7 +70,7 @@ local mappings = {
 	i = {":noh<CR>", "Turn Off Highlight"},
 	g = {":Telescope live_grep<cr>", "Live Grep"},
 	G = {":Telescope grep_string<cr>", "Grep String"},
-	o = { '<cmd>SymbolsOutline<CR>', "Toggle Soutline"},
+	o = { '<cmd>LSoutlineToggle<CR>', "Toggle Soutline"},
 	e = { '<cmd>NvimTreeOpen<CR>', "Toggle Nvim Tree"},
 	s = {":Telescope lsp_document_symbols<cr>", "Symbols"},
 	S = {":Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols"},
@@ -138,7 +132,6 @@ local mappings = {
 		n = {'<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic"},
 		N = {'<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic"},
 		p = {'<cmd>Lspsaga peek_definition<CR>', "Peek Definition"},
-		o = {'<cmd>LSoutlineToggle<CR>', "Toggle outline" },
 		c = {'<cmd>Lspsaga show_cursor_diagnostics<CR>'}
 	},
 	b = {

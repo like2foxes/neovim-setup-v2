@@ -56,11 +56,9 @@ return require('packer').startup(function(use)
 	use 'windwp/nvim-autopairs'
 	use 'nvim-lualine/lualine.nvim'
 	use 'NvChad/nvim-colorizer.lua'
-	use 'karb94/neoscroll.nvim'
 	use'folke/which-key.nvim'
 
 	-- code structure
-	use 'simrat39/symbols-outline.nvim'
 	use 'numToStr/Comment.nvim'
 	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
@@ -71,9 +69,6 @@ return require('packer').startup(function(use)
 	-- project management
 	use 'rmagatti/auto-session'
 	use 'nvim-tree/nvim-tree.lua'
-
-	-- movement
-	use 'rlane/pounce.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
