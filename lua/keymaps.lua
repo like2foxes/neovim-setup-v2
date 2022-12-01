@@ -10,7 +10,8 @@ map({"i", 'v', 'c'}, "kj", "<Esc>")
 map({"i", 'v', 'c'}, "jk", "<Esc>")
 
 -- put ; in the end of the line and return to insert mode
-map('i', "<C-f>", "<Esc>A;");
+map('i', "<C-f>", "<Esc>A;")
+map('i', "<C-Space>", "<Esc>A")
 
 -- better moving between windows
 map('n','<C-h>','<C-w>h')
