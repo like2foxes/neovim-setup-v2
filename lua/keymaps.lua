@@ -13,6 +13,13 @@ map({"i", 'v', 'c'}, "jk", "<Esc>")
 map('i', "<C-f>", "<Esc>A;")
 map('i', "<C-Space>", "<Esc>A")
 
+-- after scrolling center the page
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')
+
+-- delete character under cursur in insert mode
+map('i', '<C-l>', '<Esc>lxi')
+
 -- better moving between windows
 map('n','<C-h>','<C-w>h')
 map('n','<C-j>','<C-w>j')
