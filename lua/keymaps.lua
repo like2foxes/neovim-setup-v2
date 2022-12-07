@@ -1,5 +1,8 @@
 local map = require("utils").map
 
+-- abbreviations
+vim.cmd('iabb c const')
+
 -- set leader as space
 map('','<Space>','<NOP>')
 vim.g.mapleader = ' '
@@ -71,7 +74,6 @@ map("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 map("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 local wc = require('which-key')
 local mappings = {
-	w = {":write<CR>", "Save"},
 	q = {":quit<CR>", "Quit"},
 	Q = {":quitall<CR>", "Quit All" },
 	i = {":noh<CR>", "Turn Off Highlight"},
@@ -157,8 +159,19 @@ local mappings = {
 		n = {":tabnext<CR>", "Next Tab"},
 		p = {":tabprev<CR>", "Previous Tab"},
 		l = {"g<TAB>", "Last Visited Tab"}
-
-
+	},
+	w = {
+		name = "Windows",
+		j = {"<C-w>j", "Window Down"},
+		k = {"<C-w>k", "Window Up"},
+		h = {"<C-w>h", "Window Left"},
+		l = {"<C-w>l", "Window Right"},
+		c = {"<C-w>c", "Close"},
+		o = {"<C-w>o", "Close all But This"},
+		r = {"<C-w>r", "Rotate Windows"},
+		s = {"<C-w>s", "Split Horizontally"},
+		v = {"<C-w>v", "Split Vertically"},
+		x = {"<C-w>x", "Exchange Window"},
 	}
 }
 local opts = {
