@@ -6,7 +6,7 @@ vim.cmd('iabb c const')
 -- set leader as space
 map('','<Space>','<NOP>')
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ' c'
 
 -- better exit from insert mode
 map({"i", 'v', 'c'}, "kj", "<Esc>")
