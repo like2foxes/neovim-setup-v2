@@ -46,8 +46,7 @@ return require('packer').startup(function(use)
 	-- themes and icons
 	use 'nvim-tree/nvim-web-devicons'
 	use 'onsails/lspkind.nvim'
-	use 'folke/tokyonight.nvim'
-	use 'yorik1984/newpaper.nvim'
+	use 'RRethy/nvim-base16'
 
 	-- lsp related plugins
 	use 'neovim/nvim-lspconfig'
