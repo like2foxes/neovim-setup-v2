@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
 	-- treesitter related plugins
 	use 'nvim-treesitter/nvim-treesitter'
 	use 'nvim-treesitter/nvim-treesitter-context'
+	use 'nvim-treesitter/nvim-treesitter-textobjects'
 
 	-- telescope related plugins
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
