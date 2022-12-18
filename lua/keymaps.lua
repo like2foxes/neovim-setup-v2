@@ -21,7 +21,7 @@ map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
 
 -- delete character under cursur in insert mode
-map('i', '<C-l>', '<Esc>lxi')
+map('i', '<C-l>', '<Esc>lxa')
 
 -- better moving between windows
 map('n','<C-h>','<C-w>h')
@@ -172,7 +172,12 @@ local mappings = {
 		s = {"<C-w>s", "Split Horizontally"},
 		v = {"<C-w>v", "Split Vertically"},
 		x = {"<C-w>x", "Exchange Window"},
+	},
+	v = {
+		name = "Visual Select",
+		f = {"V$F{%", "Select Function"}
 	}
+
 }
 local opts = {
 	prefix = '<leader>'
