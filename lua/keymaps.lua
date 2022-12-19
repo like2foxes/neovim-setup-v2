@@ -38,33 +38,22 @@ map('n','gH',':tabprevious<CR>', {desc = "Next Tab"})
 map('n','gL',':tabnext<CR>', {desc = "Previos Tab"})
 
 -- keymaps for ufo (folds)
-map('n', 'zR', require('ufo').openAllFolds)
-map('n', 'zM', require('ufo').closeAllFolds)
+map('n', 'zR', require('ufo').openAllFolds, {desc = "[R]ecursively Open Folds"})
+map('n', 'zM', require('ufo').closeAllFolds, {desc = "[M] Close All Folds"})
 
 -- make visual selection stay after changing indentation
 map('v', '<', '<gv')
 map('v', '>', '>gv')
 
--- Lsp finder find the symbol definition implement reference
--- if there is no implement it will hide
--- when you use action in finder like open vsplit then you can
--- use <C-t> to jump back
-map("n", "gs", "<cmd>Lspsaga lsp_finder<CR>", { desc = "Find Definition and References"})
-
--- Rename
-map("n", "gr", "<cmd>Lspsaga rename<CR>", { desc = "Rename"})
-
--- Peek Definition
--- you can edit the definition file in this flaotwindow
--- also support open/vsplit/etc operation check definition_action_keys
--- support tagstack C-t jump back
-map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition"})
-
--- Diagnsotic jump can use `<c-o>` to jump back
-map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostic"})
-map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnsotic"})
-
--- Hover Doc
+-- Lsp Saga mappings
+map("n", "gs", "<cmd>Lspsaga lsp_finder<CR>", { desc = "Find [S]ymbol Definition and References"})
+map("n", "gr", "<cmd>Lspsaga rename<CR>", { desc = "[R]ename"})
+map("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { desc = "[P]eek Definition"})
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to [D]efinition"})
+map("n", "gt", '<cmd>lua vim.lsp.buf.type_definition()<cr>', { desc = "Go to [T]ype Definition"})
+map("n", "ga", '<cmd>Lspsaga code_action<cr>', { desc = "Code [A]ction"})
+map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous [D]iagnostic"})
+map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next [D]iagnsotic"})
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
 -- Float terminal
@@ -72,112 +61,51 @@ map("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 
 -- close floaterm
 map("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+
 local wc = require('which-key')
 local mappings = {
-	q = {":quit<CR>", "Quit"},
-	Q = {":quitall<CR>", "Quit All" },
-	i = {":noh<CR>", "Turn Off Highlight"},
-	g = {":Telescope live_grep<cr>", "Live Grep"},
-	G = {":Telescope grep_string<cr>", "Grep String"},
-	o = { '<cmd>LSoutlineToggle<CR>', "Toggle Soutline"},
-	e = { '<cmd>NvimTreeOpen<CR>', "Toggle Nvim Tree"},
-	s = {":Telescope lsp_document_symbols<cr>", "Symbols"},
-	S = {":Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols"},
-	[" "] = {":Telescope find_files<cr>", "Find Files"},
-	L = { '<cmd>LazyGit<CR>', "Open LazyGit"},
-	u = {
-		name = "General Utilities",
-		s = {":source %<CR>", "Source current buffer"},
-		p = {":PackerSync<CR>", "Sync Packer"},
-		l = {":LspRestart<CR>", "LSP Restart"},
-		c = {":tabnew ~/.config/nvim<CR>", "Configure Neovim"}
+	h = {":noh<CR>", "Turn Off [H]ighlight"},
+	o = { '<cmd>LSoutlineToggle<CR>', "Toggle Soutline [O]bjects"},
+	t = { '<cmd>NvimTreeOpen<CR>', "Toggle Nvim [T]ree"},
+	["?"] = {require('telescope.builtin').oldfiles, "[?] Find recently opened files" },
+	[" "] = {require('telescope.builtin').buffers, '[ ] Find existing buffers' },
+	['/'] = { function() require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, }) end, "[/] Fuzzily search in current buffer]"},
+	s = {
+		name = "[S]earch",
+		f = {require('telescope.builtin').find_files, "[F]iles" },
+		h = {require('telescope.builtin').help_tags, "[H]elp" },
+		w = {require('telescope.builtin').grep_string, "current [W]ord" },
+		g = {require('telescope.builtin').live_grep, "by [G]rep" },
+		D = {require('telescope.builtin').diagnostics, "[D]iagnostics" },
+		d = {require('telescope.builtin').lsp_definitions, "[Definitions]"},
+		s = {require('telescope.builtin').lsp_document_symbols, "[S]ymbols" },
+		S = {require('telescope.builtin').lsp_dynamic_workspace_symbols, "workspace [S]ymbols" },
+		t = {require('telescope.builtin').treesitter, "symbol via [T]reesitter"},
+		l = {require('telescope.builtin').resume, "[L]ast results" },
+		k = {require('telescope.builtin').keymaps, "[K]eymaps"},
 	},
-	f = {
-		name = "Search (via Telescope)",
-		r = {":Telescope lsp_references<cr>", "LSP References"},
-		f = {":Telescope buffers<cr>", "Buffers"},
-		o = {":Telescope oldfiles<cr>", "Previously open files"},
-		D = {":Telescope diagnostics<cr>", "Show Diagnostics"},
-		i = {":Telescope lsp_implementations<cr>", "Go to Implementation"},
-		d = {":Telescope lsp_definitions<cr>", "Go to Definition"},
-		S = {":Telescope search_history<cr>", "Search History"},
-		C = {":Telescope commands<cr>", "Commands"},
-		c = {":Telescope commands_history<cr>", "Recent Commands"},
-		h = {":Telescope help_tags<cr>", "Help"},
-		v = {":Telescope colorscheme<cr>", "Change Colorscheme"},
-		j = {":Telescope jumplist<cr>", "Jumplist"},
-		k = {":Telescope keymaps<cr>", "Show Keymaps"},
-		p = {":Telescope pickers<cr>", "Pickers"},
-		u = {":Telescope resume<cr>", "Return to Search"},
-		t = {":Telescope treesitter<CR>", "Search via Treesitter"}
-	},
-	h = {
-		name = "Git Signs",
-		s = {":Gitsigns stage_buffer<CR>", "Stage this buffer" },
-		u = {":Gitsigns undo_stage_hunk<CR>", "Undo Stage Hunk"},
-		R = {":Gitsigns reset_buffer<CR>", "Reset Buffer"},
-		p = {":Gitsigns preview_hunk<CR>", "Preview"},
-		b = {":Gitsigns toggle_current_line_blame<CR>", "Toggle Line Blame"},
-		B = { "Gitsigns blame_line<CR>", "Get Blame"},
-		d = {":Gitsigns diffthis<CR>", "Diff"},
-		D = {":Gitsigns toggle_deleted<CR>", "Toggle Deleted"},
-		w = {":Gitsigns toggle_word_diff<CR>", "Toggle Word Diff"}
+	g = {
+		name = "[G]it",
+		g = { '<cmd>LazyGit<CR>', "Open Lazy[G]it"},
+		s = {":Gitsigns stage_buffer<CR>", "[S]tage this buffer" },
+		u = {":Gitsigns undo_stage_hunk<CR>", "[U]ndo Stage Hunk"},
+		R = {":Gitsigns reset_buffer<CR>", "[R]eset Buffer"},
+		p = {":Gitsigns preview_hunk<CR>", "[P]review"},
+		b = {":Gitsigns toggle_current_line_blame<CR>", "Toggle Line [B]lame"},
+		B = { "Gitsigns blame_line<CR>", "Get [B]lame"},
+		d = {":Gitsigns diffthis<CR>", "[D]iff"},
+		D = {":Gitsigns toggle_deleted<CR>", "Toggle [D]eleted"},
+		w = {":Gitsigns toggle_word_diff<CR>", "Toggle [W]ord Diff"}
 
 	},
 	l = {
-		name = "LSP",
-		i = {":LspInfo<cr>", "Connected Language Servers"},
-		K = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
-		k = {"<cmd>Lspsaga hover_doc<cr>", "Hover Commands"},
-		w = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder"},
-		W = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder"},
-		l = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', "List Workspace Folders"},
-		t = {'<cmd>lua vim.lsp.buf.type_definition()<cr>', "Type Definition"},
-		d = {'<cmd>lua vim.lsp.buf.definition()<cr>', "Go To Definition"},
-		D = {'<cmd>lua vim.lsp.buf.declaration()<cr>', "Go To Declaration"},
-		r = {'<cmd>lua vim.lsp.buf.references()<cr>', "References"},
-		R = {'<cmd>Lspsaga rename<cr>', "Rename"},
-		a = {'<cmd>Lspsaga code_action<cr>', "Code Action"},
-		e = {'<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line Diagnostics"},
-		n = {'<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic"},
-		N = {'<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic"},
-		p = {'<cmd>Lspsaga peek_definition<CR>', "Peek Definition"},
-		c = {'<cmd>Lspsaga show_cursor_diagnostics<CR>'}
+		name = "[L]SP",
+		k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
+		w = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add [W]orkspace Folder"},
+		W = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove [W]orkspace Folder"},
+		l = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', "[L]ist Workspace Folders"},
+		d = {'<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line [D]iagnostics"},
 	},
-	b = {
-		name = "Buffers",
-		b = {":Telescope buffers<CR>", "Pick a buffer"},
-		c = {":bdelete<CR>", "Close a buffer"},
-		n = {":bnext<CR>", "Next buffer"},
-		p = {":bprev<CR>", "Previous buffer"},
-	},
-	t = {
-		name = "Tabs",
-		o = {":tabnew<CR>", "New Tab"},
-		c = {":tabclose<CR>", "Clost Tab"},
-		C = {":tabonly<CR>", "Close All Other Tabs"},
-		n = {":tabnext<CR>", "Next Tab"},
-		p = {":tabprev<CR>", "Previous Tab"},
-		l = {"g<TAB>", "Last Visited Tab"}
-	},
-	w = {
-		name = "Windows",
-		j = {"<C-w>j", "Window Down"},
-		k = {"<C-w>k", "Window Up"},
-		h = {"<C-w>h", "Window Left"},
-		l = {"<C-w>l", "Window Right"},
-		c = {"<C-w>c", "Close"},
-		o = {"<C-w>o", "Close all But This"},
-		r = {"<C-w>r", "Rotate Windows"},
-		s = {"<C-w>s", "Split Horizontally"},
-		v = {"<C-w>v", "Split Vertically"},
-		x = {"<C-w>x", "Exchange Window"},
-	},
-	v = {
-		name = "Visual Select",
-		f = {"V$F{%", "Select Function"}
-	}
-
 }
 local opts = {
 	prefix = '<leader>'
