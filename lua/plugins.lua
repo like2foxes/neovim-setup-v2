@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
 
 	-- this is a prerequisite for many other plugins
 	use 'nvim-lua/plenary.nvim'
-	use 'williamboman/mason.nvim'
 
 	-- themes and icons
 	use 'nvim-tree/nvim-web-devicons'
@@ -50,6 +49,8 @@ return require('packer').startup(function(use)
 	use 'RRethy/nvim-base16'
 
 	-- lsp related plugins
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'glepnir/lspsaga.nvim'
 	use 'folke/neodev.nvim' -- for neovim lua

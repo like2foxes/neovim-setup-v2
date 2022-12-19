@@ -2,7 +2,6 @@ require('plugins')
 require('mason-config')
 require('options')
 require('neodev-config') -- must be set before lsp-config
-require('lsp-config')
 require('cmp-config')
 require('fidget-config')
 require('tree-sitter-config')
@@ -26,3 +25,12 @@ require('keymaps')
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
