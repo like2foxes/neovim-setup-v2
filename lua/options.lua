@@ -7,6 +7,7 @@ local options = {
 	shiftround = true,
 	smarttab = true,
 	expandtab = false,
+	breakindent = true,
 
 	-- buffers
 	hidden = true,
@@ -38,6 +39,9 @@ local options = {
 	incsearch = true,
 	ignorecase = true,
 	smartcase = true,
+
+	-- completion
+	completeopt = 'menuone,noselect',
 
 	-- scrolling
 	scroll = 2,
