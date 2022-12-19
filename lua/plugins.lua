@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
 	use 'glepnir/lspsaga.nvim'
 	use 'folke/neodev.nvim' -- for neovim lua
 	use 'ray-x/lsp_signature.nvim'
+	use 'j-hui/fidget.nvim'
 
 	-- treesitter related plugins
 	use 'nvim-treesitter/nvim-treesitter'
@@ -81,7 +82,8 @@ return require('packer').startup(function(use)
 	use 'windwp/nvim-autopairs'
 	use 'nvim-lualine/lualine.nvim'
 	use 'NvChad/nvim-colorizer.lua'
-	use'folke/which-key.nvim'
+	use 'folke/which-key.nvim'
+	use 'lukas-reineke/indent-blankline.nvim'
 
 	-- code structure
 	use 'numToStr/Comment.nvim'
