@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
 
 	-- this is a prerequisite for many other plugins
 	use 'nvim-lua/plenary.nvim'
+	use 'williamboman/mason.nvim'
 
 	-- themes and icons
 	use 'nvim-tree/nvim-web-devicons'

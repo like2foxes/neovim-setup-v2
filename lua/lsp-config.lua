@@ -14,6 +14,7 @@ local servers = {
 	'emmet_ls',
 	'html',
 	'clojure_lsp',
+	'awk_ls'
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {

@@ -1,4 +1,5 @@
 require('plugins')
+require('mason-config')
 require('options')
 require('neodev-config') -- must be set before lsp-config
 require('lsp-config')
