@@ -70,7 +70,7 @@ local mappings = {
 	["?"] = {require('telescope.builtin').oldfiles, "[?] Find recently opened files" },
 	[" "] = {require('telescope.builtin').buffers, '[ ] Find existing buffers' },
 	['/'] = { function() require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, }) end, "[/] Fuzzily search in current buffer]"},
-	['f'] = {require('telescope.builtin').find_files, "[F]iles" },
+	s = {require('telescope.builtin').lsp_document_symbols, "[S]ymbols" },
 	j = {
 		name = "[J]ump to Next:",
 		f = {":TSTextobjectGotoNextStart @function.outer<CR>", "[F]unction"},
@@ -135,8 +135,8 @@ local mappings = {
 			}
 		},
 	},
-	s = {
-		name = "[S]earch",
+	f = {
+		name = "[F]ind",
 		f = {require('telescope.builtin').find_files, "[F]iles" },
 		h = {require('telescope.builtin').help_tags, "[H]elp" },
 		w = {require('telescope.builtin').grep_string, "current [W]ord" },
